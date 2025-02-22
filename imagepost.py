@@ -57,7 +57,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg
 if uploaded_file is not None:
     try:
         original_image = Image.open(uploaded_file)
-        st.image(original_image, caption="Original Image", use_column_width=True)
+        st.image(original_image, caption="Original Image", use_container_width=True)
     except Exception as e:
         st.error("Error opening image: " + str(e))
     
@@ -96,7 +96,7 @@ if uploaded_file is not None:
             cols = st.columns(2)
             for i, img in enumerate(resized_images):
                 with cols[i % 2]:
-                    st.image(img, caption=f"Size: {sizes[i][0]}x{sizes[i][1]}", use_column_width=True)
+                    st.image(img, caption=f"Size: {sizes[i][0]}x{sizes[i][1]}", use_container_width=True)
             st.session_state['resized_images'] = resized_images
             st.session_state['sizes'] = sizes
 
